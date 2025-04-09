@@ -12,6 +12,7 @@ class Webhook(Resource):
     
     def get(self):
         hubChalange = request.args.get('hub.challenge')
+        print(hubChalange)
         return hubChalange, 200
 
 api.add_resource(Webhook, "/webhook")
