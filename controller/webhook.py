@@ -9,7 +9,7 @@ class Webhook(Resource):
     def post(self):
         data = request.get_json()
         print(data)
-        url = "http://n8n.og-19.online/webhook/97c84d0e-b45f-4b82-824b-32b182f3f91c"
+        url = "http://n8n.og-19.online/webhook/2025"
         response = requests.post(url, json=data)
         return "OK", 200
     
