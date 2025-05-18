@@ -5,3 +5,4 @@ api_bp = Blueprint('api', __name__)
 
 from . import account
 from . import webhook
+from . import cngo_learning
