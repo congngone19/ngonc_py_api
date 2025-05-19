@@ -13,11 +13,13 @@ class LearningAPI(Resource):
     
 class GetToken(Resource):
     def get(self):
-        url = request.args.get('url')
         auth = {
-            
+            "grant_type":"client_credentials",
+            "client_id":"d705c688-e6d5-451f-b69f-7f27e5a39d43",
+            "client_secret":"R4B8Q~LwQbEvqJnT2XpwrnV1f5sBGegLTplpWdbz",
+            "scope":"https://hi-iamngo.crm5.dynamics.com/.default"
         }
-        response = requests.post(url, data=auth)
+        response = requests.post("https://login.microsoftonline.com/8ccfa3e1-88db-4035-9c29-23f65cf4026c/oauth2/v2.0/token", data=auth)
         return response, response.status_code
     
 api.add_resource(LearningAPI, "/learning_v1")
