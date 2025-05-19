@@ -15,10 +15,7 @@ class GetToken(Resource):
     def get(self):
         url = request.args.get('url')
         auth = {
-            "grant_type":"client_credentials",
-            "client_id":"d705c688-e6d5-451f-b69f-7f27e5a39d43",
-            "client_secret":"R4B8Q~LwQbEvqJnT2XpwrnV1f5sBGegLTplpWdbz",
-            "scope":"https://hi-iamngo.crm5.dynamics.com/.default"
+            
         }
         response = requests.post(url, data=auth)
         return response, response.status_code
