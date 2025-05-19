@@ -21,8 +21,12 @@ class getAuthen(Resource):
             "client_secret":result[0][1],
             "scope":result[0][2]
         }
-        response = requests.post("", data=auth)
-        return response, response.status_code
+        headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+        response = requests.post("https://login.microsoftonline.com/8ccfa3e1-88db-4035-9c29-23f65cf4026c/oauth2/v2.0/token", data=auth, headers=headers)
+        data = response.json()
+        return data, response.status_code
     
 api.add_resource(LearningAPI, "/learning_v1")
 api.add_resource(getAuthen, "/token_v1")
