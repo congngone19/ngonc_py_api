@@ -2,6 +2,7 @@ import requests
 from flask import Flask, request, json, jsonify
 from flask_restful import Api, Resource
 from . import api_bp
+from service.AuthenService import *;
 api = Api(api_bp)
 
 class LearningAPI(Resource):
@@ -13,11 +14,15 @@ class LearningAPI(Resource):
     
 class GetToken(Resource):
     def get(self):
-        url = request.args.get('url')
+        result = GetAzureAuthentication();
+        print(result[0][0])
         auth = {
-            
+            "grant_type":result[0][3],
+            "client_id":result[0][0],
+            "client_secret":result[0][1],
+            "scope":result[0][2]
         }
-        response = requests.post(url, data=auth)
+        response = requests.post("", data=auth)
         return response, response.status_code
     
 api.add_resource(LearningAPI, "/learning_v1")
