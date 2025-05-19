@@ -16,10 +16,10 @@ class GetToken(Resource):
     def get(self):
         result = GetAzureAuthentication();
         auth = {
-            "grant_type":result[0][3],
-            "client_id":result[0][0],
-            "client_secret":result[0][1],
-            "scope":result[0][2]
+            "":result[0][3],
+            "":result[0][0],
+            "":result[0][1],
+            "":result[0][2]
         }
         response = requests.post("", data=auth)
         return response, response.status_code
