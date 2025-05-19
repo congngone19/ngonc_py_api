@@ -15,7 +15,6 @@ class LearningAPI(Resource):
 class GetToken(Resource):
     def get(self):
         result = GetAzureAuthentication();
-        print(result[0][0])
         auth = {
             "grant_type":result[0][3],
             "client_id":result[0][0],
