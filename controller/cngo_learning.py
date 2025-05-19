@@ -31,7 +31,7 @@ class LearningAPI(Resource):
         return "OK", 200
     
 class Course(Resource):           
-    def get(self):
+    def post(self):
         token = GetToken()
         listCourse = []
         try:
