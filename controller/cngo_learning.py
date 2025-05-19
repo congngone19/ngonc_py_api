@@ -19,7 +19,7 @@ class GetToken(Resource):
             "client_secret":"R4B8Q~LwQbEvqJnT2XpwrnV1f5sBGegLTplpWdbz",
             "scope":"https://hi-iamngo.crm5.dynamics.com/.default"
         }
-        response = requests.post("https://login.microsoftonline.com/8ccfa3e1-88db-4035-9c29-23f65cf4026c/oauth2/v2.0/token", data=auth)
+        response = requests.post("", data=auth)
         return response, response.status_code
     
 api.add_resource(LearningAPI, "/learning_v1")
