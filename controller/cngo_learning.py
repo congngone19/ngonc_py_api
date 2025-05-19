@@ -12,17 +12,17 @@ class LearningAPI(Resource):
         response = requests.post(url, json=data)
         return "OK", 200
     
-class GetToken(Resource):
+class getAuthen(Resource):
     def get(self):
         result = GetAzureAuthentication();
         auth = {
-            "":result[0][3],
-            "":result[0][0],
-            "":result[0][1],
-            "":result[0][2]
+            "grant_type":result[0][3],
+            "client_id":result[0][0],
+            "client_secret":result[0][1],
+            "scope":result[0][2]
         }
         response = requests.post("", data=auth)
         return response, response.status_code
     
 api.add_resource(LearningAPI, "/learning_v1")
-api.add_resource(GetToken, "/token_v1")
+api.add_resource(getAuthen, "/token_v1")
